@@ -44,4 +44,29 @@ const bookStore = {
 }
 
 // Write your code here!
+// 1. Select the book-list div from your HTML
+const bookList = document.querySelector('#book-list');
+
+// 2. Write a function to render the books
+function renderBooks(booksArray) {
+  booksArray.forEach(book => {
+    // Create elements
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
+    const img = document.createElement('img');
+
+    // Add content from the data
+    h3.textContent = book.title;
+    p.textContent = book.author;
+    img.src = book.imageUrl;
+
+    // Append them to the book-list
+    bookList.appendChild(h3);
+    bookList.appendChild(p);
+    bookList.appendChild(img);
+  });
+}
+
+// 3. Call the function using the data from your bookStore object
+renderBooks(bookStore.books);
 
